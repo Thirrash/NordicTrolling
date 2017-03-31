@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float sensitivityZoom = 2.5f;
 
     [SerializeField] float horizontalBound = 25.0f;
-    [SerializeField] float verticalBoundUp = -15.0f;
+    [SerializeField] float verticalBoundUp = -10.0f;
     [SerializeField] float verticalBoundDown = -40.0f;
     [SerializeField] float zoomInBound = -2.0f;
     [SerializeField] float zoomOutBound = -40.0f;
@@ -71,7 +71,7 @@ public class CameraMovement : MonoBehaviour
             return;
 
         float camPosVer = cam.transform.position.y;
-        float newPosVer = Mathf.Clamp( camPosVer + offset, -verticalBoundDown, verticalBoundUp );
+        float newPosVer = Mathf.Clamp( camPosVer + offset, verticalBoundDown, verticalBoundUp );
         cam.transform.position = new Vector3( cam.transform.position.x, newPosVer, cam.transform.position.z );
     }
 
@@ -104,7 +104,7 @@ public class CameraMovement : MonoBehaviour
             return;
 
         float camPosVer = cam.transform.position.y;
-        float newPosVer = Mathf.Clamp( camPosVer + offset, -verticalBoundDown, verticalBoundUp );
+        float newPosVer = Mathf.Clamp( camPosVer + offset, verticalBoundDown, verticalBoundUp );
         cam.transform.position = new Vector3( cam.transform.position.x, newPosVer, cam.transform.position.z );
     }
 
