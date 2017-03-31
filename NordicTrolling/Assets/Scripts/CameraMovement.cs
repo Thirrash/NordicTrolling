@@ -70,9 +70,9 @@ public class CameraMovement : MonoBehaviour
         else
             return;
 
-        float camPosVer = cam.transform.position.y;
+        float camPosVer = cam.transform.position.z;
         float newPosVer = Mathf.Clamp( camPosVer + offset, verticalBoundDown, verticalBoundUp );
-        cam.transform.position = new Vector3( cam.transform.position.x, newPosVer, cam.transform.position.z );
+        cam.transform.position = new Vector3( cam.transform.position.x, cam.transform.position.y, newPosVer );
     }
 
     void CheckMouse( ) {
@@ -103,9 +103,9 @@ public class CameraMovement : MonoBehaviour
         else
             return;
 
-        float camPosVer = cam.transform.position.y;
+        float camPosVer = cam.transform.position.z;
         float newPosVer = Mathf.Clamp( camPosVer + offset, verticalBoundDown, verticalBoundUp );
-        cam.transform.position = new Vector3( cam.transform.position.x, newPosVer, cam.transform.position.z );
+        cam.transform.position = new Vector3( cam.transform.position.x, cam.transform.position.y, newPosVer );
     }
 
     void CheckZoom( ) {
