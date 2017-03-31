@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 930917265}
   - component: {fileID: 930917264}
   - component: {fileID: 930917263}
+  - component: {fileID: 930917266}
   m_Layer: 0
   m_Name: TrollManager
   m_TagString: Untagged
@@ -641,12 +642,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trollObjs:
   - {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
-  - {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
-  - {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
-  - {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
-  - {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
+  - {fileID: 1473714146566138, guid: c235be3d342336140a124822adbdaff3, type: 2}
+  - {fileID: 1473714146566138, guid: 65e9fcee3e58bc34686842133feb8c1b, type: 2}
+  - {fileID: 1473714146566138, guid: 3c33de6c9ec516147a60db2d5a7ef9ac, type: 2}
+  - {fileID: 1473714146566138, guid: 738b7a884bb949e45bf4af068f53bed6, type: 2}
   currTroll: {fileID: 1473714146566138, guid: afcdc411287c9224c8ab74a351a7e66a, type: 2}
-  canvas: {fileID: 1415422305}
+  currTrollNr: 0
 --- !u!4 &930917265
 Transform:
   m_ObjectHideFlags: 0
@@ -660,6 +661,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &930917266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930917262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3833d411660c4ce4b9854fc4c47de4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1415422305}
+  trollText:
+  - {fileID: 1101890310}
+  - {fileID: 125619814}
+  - {fileID: 424069792}
+  - {fileID: 1451293901}
+  - {fileID: 1829073495}
+  trollCount: 0300000002000000010000000000000005000000
 --- !u!1 &1005715407
 GameObject:
   m_ObjectHideFlags: 0
