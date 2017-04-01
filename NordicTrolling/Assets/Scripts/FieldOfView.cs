@@ -14,7 +14,7 @@ namespace FOV
         [SerializeField]
         protected LayerMask alternativeTargetMask;
 
-        private LayerMask currentTargetMask;
+        protected LayerMask currentTargetMask;
 
         [SerializeField]
         private float coroutineDelay = 0.4f;
