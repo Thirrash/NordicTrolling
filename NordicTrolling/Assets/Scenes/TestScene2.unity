@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 613202251}
   - component: {fileID: 613202250}
   - component: {fileID: 613202249}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,6 +464,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 834928484}
+--- !u!1 &861800956 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1719793695545174, guid: ad3c5c152e315854ab24cdb120ff6c0b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1001652115}
 --- !u!1 &897542814
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd1d0d80c81b684fb4d7bd0862a919c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 0.5
 --- !u!114 &930917264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,17 +783,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1719793695545174, guid: ad3c5c152e315854ab24cdb120ff6c0b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad3c5c152e315854ab24cdb120ff6c0b, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1001652116 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224236217651657832, guid: ad3c5c152e315854ab24cdb120ff6c0b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1001652115}
---- !u!1 &1001652117 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1847555189915654, guid: ad3c5c152e315854ab24cdb120ff6c0b,
     type: 2}
   m_PrefabInternal: {fileID: 1001652115}
 --- !u!1 &1005715407
@@ -1611,7 +1616,7 @@ Prefab:
         type: 2}
       propertyPath: gameOverScreen
       value: 
-      objectReference: {fileID: 1001652117}
+      objectReference: {fileID: 861800956}
     - target: {fileID: 54800628744301734, guid: df6f55d7a87e4254a92b882f9738a338,
         type: 2}
       propertyPath: m_IsKinematic
@@ -2431,7 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cef4a92c005a04cb3a1e2ad45cb6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageValue: 2
+  damageValue: 20
 --- !u!23 &2024035569
 MeshRenderer:
   m_ObjectHideFlags: 0

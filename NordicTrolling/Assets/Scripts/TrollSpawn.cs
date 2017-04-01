@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TrollSpawn : MonoBehaviour
 {
+    public float cooldownTime = 0.5f;
     TrollChoice choice;
     TrollCount count;
     Camera cam;
-    RaycastHit hit;
 
     void Start( ) {
         cam = Camera.main;
@@ -22,7 +22,10 @@ public class TrollSpawn : MonoBehaviour
             yield return new WaitUntil( ( ) => Input.GetMouseButtonDown( 0 ) );
 
             Ray ray = cam.ScreenPointToRay( Input.mousePosition );
-            if( !Physics.Raycast( ray, out hit, ConstantsLayer.BIT( ConstantsLayer.terrain ) ) )
+            RaycastHit hit;
+            LayerMask mask = 1 << 8;
+
+            if( !Physics.Raycast( ray, out hit, 100.0f, mask ) )
                 continue;
             else
                 Debug.Log( hit.collider.gameObject.layer );
@@ -34,7 +37,7 @@ public class TrollSpawn : MonoBehaviour
             count.ChangeTrollCount( choice.currTrollNr, count.GetTrollCount( choice.currTrollNr ) - 1 );
 
             Debug.Log( "Spawned Troll!" );
-            yield return new WaitForSecondsRealtime( 0.5f );
+            yield return new WaitForSecondsRealtime( cooldownTime );
         }
     }
 }

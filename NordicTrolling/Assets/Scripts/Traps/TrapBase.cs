@@ -11,4 +11,8 @@ public class TrapBase : MonoBehaviour
     protected virtual void OnCollisionEnter( Collision col ) {
 
     }
+
+    protected virtual void OnCollisionStay( Collision col ) {
+
+    }
 }

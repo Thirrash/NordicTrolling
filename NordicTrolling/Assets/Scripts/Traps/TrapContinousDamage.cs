@@ -13,9 +13,14 @@ public class TrapContinousDamage : TrapBase
     protected override void OnCollisionEnter( Collision col ) {
         base.OnCollisionEnter( col );
 
-        //Viking.Inst.attack.SetAgentActive( false );
+        if( col.gameObject.layer == ConstantsLayer.viking )
+            Viking.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
+    }
+
+    protected override void OnCollisionStay( Collision col ) {
+        base.OnCollisionEnter( col );
 
         if( col.gameObject.layer == ConstantsLayer.viking )
-            Viking.Inst.stats.TakeDamage( damageValue );
+            Viking.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
     }
 }

@@ -12,8 +12,8 @@ public class VikingStats : MonoBehaviour
     }
 
     public void TakeDamage( float val ) {
-        hp = ( hp - val > 0.0f ) ? hp - val : 0.0f;
-        if( hp <= 0.0f )
+        hp -= val;
+        if( hp <= 0.01f )
             Death( );
     }
 
