@@ -4,29 +4,33 @@ using Events;
 using Managers;
 using UnityEngine;
 
-public class VikingStats : MonoBehaviour
+namespace Viking
 {
-    [SerializeField] float hp;
-    public GameObject gameOverScreen;
+    public class VikingStats : MonoBehaviour
+    {
+        [SerializeField] float maxHp;
+        public float MaxHp { get { return maxHp; } }
 
-    void Start( ) {
+        public float Hp { get; private set; }
 
-    }
+        void Start( ) {
+            Hp = MaxHp;
+        }
 
-    public void TakeDamage( float val ) {
-        hp -= val;
-        if( hp <= 0.01f )
-            Death( );
-    }
+        public void TakeDamage( float val ) {
+            Hp -= val;
+            EventManager.Instance.InvokeEvent( new TrapRefreshHp( Hp, MaxHp ) );
+            if( Hp <= 0.01f )
+                Death( );
+        }
 
-    public void InstaKill( ) {
-        hp = 0.0f;
-        Death( );
-    }
+        public void InstaKill( ) {
+            TakeDamage( Hp );
+        }
 
-    void Death( ) {
-        Time.timeScale = 0.0f;
-        gameOverScreen.SetActive( true );
-        EventManager.Instance.QueueEvent(new GameOverEvent(false));
+        void Death( ) {
+            Time.timeScale = 0.0f;
+            EventManager.Instance.QueueEvent( new GameOverEvent( false ) );
+        }
     }
 }

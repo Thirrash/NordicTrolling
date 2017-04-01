@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Viking;
 
-public class TrapInstantDeath : TrapBase
+namespace Traps
 {
-    protected override void Start( ) {
-        base.Start( );
-    }
+    public class TrapInstantDeath : TrapBase
+    {
+        protected override void Start( ) {
+            base.Start( );
+        }
 
-    protected override void OnCollisionEnter( Collision col ) {
-        base.OnCollisionEnter( col );
+        protected override void OnCollisionEnter( Collision col ) {
+            base.OnCollisionEnter( col );
 
-        if( col.gameObject.layer == ConstantsLayer.viking )
-            Viking.Inst.stats.InstaKill( );
+            if( col.gameObject.layer == ConstantsLayer.viking )
+                VikingSing.Inst.stats.InstaKill( );
+        }
     }
 }
+

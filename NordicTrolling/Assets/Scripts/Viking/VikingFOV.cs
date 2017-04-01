@@ -5,32 +5,31 @@ using Movement;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class VikingFOV : FieldOfView
+namespace Viking
 {
-    private MoveTo moveTo;
-
-    protected override void Awake()
+    public class VikingFOV : FieldOfView
     {
-        moveTo = GetComponent<MoveTo>();
-    }
+        private MoveTo moveTo;
 
-    protected override void TakeActionOnVisibleObjects()
-    {
-        float distance = Mathf.Infinity;
-        GameObject closestObject = null;
-        foreach (var visibleObject in VisibleObjects)
-        {
-            var dis = Vector3.Distance(transform.position, visibleObject.transform.position);
-            if (dis < distance )
-            {
-                distance = dis;
-                closestObject = visibleObject;
-            }
+        protected override void Awake( ) {
+            moveTo = GetComponent<MoveTo>( );
         }
-        if (distance < Mathf.Infinity)
-        {
-            if (closestObject == null) return;
-            moveTo.SetGoal(closestObject);
+
+        protected override void TakeActionOnVisibleObjects( ) {
+            float distance = Mathf.Infinity;
+            GameObject closestObject = null;
+            foreach( var visibleObject in VisibleObjects ) {
+                var dis = Vector3.Distance( transform.position, visibleObject.transform.position );
+                if( dis < distance ) {
+                    distance = dis;
+                    closestObject = visibleObject;
+                }
+            }
+            if( distance < Mathf.Infinity ) {
+                if( closestObject == null ) return;
+                moveTo.SetGoal( closestObject );
+            }
         }
     }
 }
+

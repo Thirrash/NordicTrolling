@@ -8,7 +8,10 @@ public static class ConstantsLayer
     public static int obstacle = 11;
     public static int viking = 12;
 
-    public static int BIT( int x ) {
-        return 1 << x;
+    public static int BIT( params int[] x ) {
+        int ret = 0;
+        foreach( int i in x )
+            ret |= 1 << i;
+        return ret;
     }
 }

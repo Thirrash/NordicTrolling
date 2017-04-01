@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapBase : MonoBehaviour
+namespace Traps
 {
-    protected virtual void Start( ) {
+    public class TrapBase : MonoBehaviour
+    {
+        protected virtual void Start( ) {
 
-    }
+        }
 
-    protected virtual void OnCollisionEnter( Collision col ) {
+        protected virtual void OnCollisionEnter( Collision col ) {
 
-    }
+        }
 
-    protected virtual void OnCollisionStay( Collision col ) {
+        protected virtual void OnCollisionStay( Collision col ) {
 
+        }
     }
 }
+

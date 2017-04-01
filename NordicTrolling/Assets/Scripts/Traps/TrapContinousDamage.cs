@@ -1,26 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Viking;
 
-public class TrapContinousDamage : TrapBase
+namespace Traps
 {
-    public float damageValue = 0.0f;
+    public class TrapContinousDamage : TrapBase
+    {
+        public float damageValue = 0.0f;
 
-    protected override void Start( ) {
-        base.Start( );
-    }
+        protected override void Start( ) {
+            base.Start( );
+        }
 
-    protected override void OnCollisionEnter( Collision col ) {
-        base.OnCollisionEnter( col );
+        protected override void OnCollisionEnter( Collision col ) {
+            base.OnCollisionEnter( col );
 
-        if( col.gameObject.layer == ConstantsLayer.viking )
-            Viking.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
-    }
+            if( col.gameObject.layer == ConstantsLayer.viking )
+                VikingSing.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
+        }
 
-    protected override void OnCollisionStay( Collision col ) {
-        base.OnCollisionEnter( col );
+        protected override void OnCollisionStay( Collision col ) {
+            base.OnCollisionEnter( col );
 
-        if( col.gameObject.layer == ConstantsLayer.viking )
-            Viking.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
+            if( col.gameObject.layer == ConstantsLayer.viking )
+                VikingSing.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
+        }
     }
 }
+
