@@ -31,6 +31,16 @@ namespace Movement
         {
             goal = gameObject.transform;
         }
+
+        public void SetGoal(Transform transform)
+        {
+            goal = transform;
+        }
+
+        public void DisableGoal()
+        {
+            goal = null;
+        }
         #endregion
     }
 }
