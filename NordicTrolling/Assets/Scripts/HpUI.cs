@@ -16,6 +16,7 @@ public class HpUI : MonoBehaviour
 
     void ChangeBarScale( TrapRefreshHp t ) {
         RectTransform tr = GetComponent<RectTransform>( );
+        if (t.hpRatio < 0) t.hpRatio = 0;
         tr.localScale = new Vector3( t.hpRatio, 1.0f, 1.0f );
     }
 }
