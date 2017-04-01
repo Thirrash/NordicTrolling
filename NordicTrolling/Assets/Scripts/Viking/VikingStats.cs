@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Events;
+using Managers;
 using UnityEngine;
 
 public class VikingStats : MonoBehaviour
@@ -25,5 +27,6 @@ public class VikingStats : MonoBehaviour
     void Death( ) {
         Time.timeScale = 0.0f;
         gameOverScreen.SetActive( true );
+        EventManager.Instance.QueueEvent(new GameOverEvent(false));
     }
 }
