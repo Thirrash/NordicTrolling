@@ -20,6 +20,10 @@ namespace Traps
 
         }
 
+        protected virtual void OnTriggerEnter( Collider col ) {
+
+        }
+
         protected virtual void OnTriggerStay( Collider col ) {
 
         }
