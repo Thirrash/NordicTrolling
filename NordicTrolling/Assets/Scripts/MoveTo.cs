@@ -7,7 +7,7 @@ namespace Movement
     {
         #region Fields
         [SerializeField]
-        private Transform goal;
+        private Vector3 goal;
 
         private NavMeshAgent agent;
         #endregion
@@ -21,7 +21,7 @@ namespace Movement
         private void Update()
         {
             if (goal == null) return;
-            agent.destination = goal.position; //new Vector3(goal.position.x, 0, goal.position.z);
+            agent.destination = goal; //new Vector3(goal.position.x, 0, goal.position.z);
         }
 
         #endregion
@@ -29,7 +29,11 @@ namespace Movement
         #region Public Methods
         public void SetGoal(GameObject gameObject)
         {
-            goal = gameObject.transform;
+            goal = gameObject.transform.position;
+        }
+
+        public void SetGoal( Vector3 pos ) {
+            goal = pos;
         }
         #endregion
     }

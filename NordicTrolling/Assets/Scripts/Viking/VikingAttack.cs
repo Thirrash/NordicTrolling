@@ -42,6 +42,11 @@ namespace Viking
                     fightParticles = EffectSpawner.SpawnFightParticles( transform.position + transform.forward + Vector3.up );
                     SetAgentActive( false );
                     detectedTroll = hit.collider.gameObject;
+
+                    if( detectedTroll.GetComponent<Trolls.TrollWalking>( ) != null )
+                        detectedTroll.GetComponent<Trolls.TrollWalking>( ).SetAgentActive( false );
+
+                    FightDuration = detectedTroll.GetComponent<Trolls.TrollBase>( ).FightTime;
                     isFighting = true;
                 }
             }

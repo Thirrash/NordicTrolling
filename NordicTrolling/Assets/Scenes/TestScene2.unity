@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.516042, g: 0.35423875, b: 0.9264706, a: 1}
+  m_Color: {r: 0.22610293, g: 0.35978693, b: 0.75, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.71807814, g: 0.9338235, b: 0.7003676, a: 1}
+  m_Color: {r: 0.9852941, g: 0.91334563, b: 0.33326125, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   - {fileID: 424069792}
   - {fileID: 1451293901}
   - {fileID: 1829073495}
-  trollCount: 0300000002000000010000000000000005000000
+  trollCount: 0300000002000000040000000000000005000000
 --- !u!1 &940408977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85294116, g: 0.570718, b: 0.570718, a: 1}
+  m_Color: {r: 0.9117647, g: 0.15419549, b: 0.15419549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1699,7 +1699,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1075081723}
   - component: {fileID: 1075081722}
-  - component: {fileID: 1075081721}
   m_Layer: 11
   m_Name: Gate (1)
   m_TagString: Untagged
@@ -1707,18 +1706,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1075081721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1075081720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e65bb479a453204aaa19c4ba15e2fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetTime: 0.1
 --- !u!114 &1075081722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,7 +1729,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075081720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.87, y: 1.52, z: -11.66}
+  m_LocalPosition: {x: 0.21, y: 1.52, z: -11.66}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children:
   - {fileID: 1496490853}
@@ -2743,7 +2730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.83823526, g: 0.35748267, b: 0.70561403, a: 1}
+  m_Color: {r: 0.2647059, g: 0.2647059, b: 0.2647059, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3335,7 +3322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9338235, g: 0.089262515, b: 0.089262515, a: 1}
+  m_Color: {r: 0.7205882, g: 0.7205882, b: 0.7205882, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3447,7 +3434,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2145572538}
   - component: {fileID: 2145572537}
-  - component: {fileID: 2145572539}
   m_Layer: 11
   m_Name: Gate
   m_TagString: Untagged
@@ -3487,15 +3473,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2145572539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2145572536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e65bb479a453204aaa19c4ba15e2fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetTime: 0.1

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65092147781206532}
   - component: {fileID: 23816279452900028}
   - component: {fileID: 54990211127883674}
+  - component: {fileID: 114912803817968316}
   m_Layer: 9
   m_Name: Troll 1
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473714146566138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.87, y: 0.69, z: -9.55}
+  m_LocalPosition: {x: 8.489035, y: 0.5000019, z: -15.924149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7feb976884c2de3489976f0986cd51ed, type: 2}
+  - {fileID: 2100000, guid: f07273e4ac91a2b4d82affe1efb8e477, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,3 +109,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114912803817968316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473714146566138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd3fce0969560c41947796fcf02e8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
