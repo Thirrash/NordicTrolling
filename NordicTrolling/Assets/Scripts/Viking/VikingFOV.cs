@@ -1,80 +1,104 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Events;
+using Enums;
 using FOV;
 using Managers;
 using Movement;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Viking
 {
     public class VikingFOV : FieldOfView
     {
         private MoveTo moveTo;
+        private NavMeshAgent agent;
         GameObject closestObject = null;
 
         private bool isRandom;
+        private bool isTrollSpotted;
+        private int positionRange = 10;
 
         protected override void Awake()
         {
             moveTo = GetComponent<MoveTo>();
+            agent = GetComponent<NavMeshAgent>();
         }
-
-        protected override void Start()
-        {
-            EventManager.Instance.AddListener<VikingRandomMoveEvent>(AdaptToRandomMove);
-            base.Start();
-        }
-
 
         protected override void TakeActionOnVisibleObjects()
         {
 
             float distance = Mathf.Infinity;
             closestObject = null;
-            foreach (var visibleObject in VisibleObjects)
+            if (currentTargetMask.Equals(defaultTargetMask))
             {
-                var dis = Vector3.Distance(transform.position, visibleObject.transform.position);
-                if (dis < distance)
+                foreach (var visibleObject in VisibleObjects)
                 {
-                    distance = dis;
-                    closestObject = visibleObject;
+                    var dis = Vector3.Distance(transform.position, visibleObject.transform.position);
+                    if (dis < distance)
+                    {
+                        distance = dis;
+                        closestObject = visibleObject;
+                    }
                 }
-            }
 
-            EventManager.Instance.InvokeEvent(closestObject == null
-                ? new VikingRandomMoveEvent(true)
-                : new VikingRandomMoveEvent(false));
-
-            if (isRandom)
-            {
-                int dupa = Random.Range(0, VisibleObjects.Count - 1);
-                if (VisibleObjects.Count > 0)
+                if (closestObject == null)
                 {
-                    closestObject = VisibleObjects.ElementAt(dupa);
+                    SwapTargetMask(true);
+                    isTrollSpotted = false;
+                    moveTo.DisableGoal();
                 }
                 else
                 {
-                    //moveTo.SetGoal();
+                    moveTo.SetGoal(closestObject);
+                }
+            }
+            else
+            {
+                foreach (GameObject visibleObject in VisibleObjects)
+                {
+                    if (LayerMask.LayerToName(visibleObject.layer).Equals(LayersEnum.Troll))
+                    {
+                        isTrollSpotted = true;
+                        SwapTargetMask(false);
+                    }
+                }
+                float dupa = (Random.Range(0, VisibleObjects.Count));
+                if (VisibleObjects.Count > 0)
+                {
+                    closestObject = VisibleObjects.ElementAt((int)dupa);
+                }
+                if (moveTo.CheckIfGoalIsNull())
+                {
+                    if (closestObject != null)
+                    {
+                        moveTo.SetGoal(closestObject);
+                    }
+                    else
+                    {
+                        //moveTo.SetGoal(Random.insideUnitCircle * viewRadius);
+                        moveTo.SetGoal(new Vector3(Random.Range(-positionRange, positionRange), 1, Random.Range(-positionRange, positionRange)));
+                    }
                 }
             }
 
-        }
-        private void AdaptToRandomMove(VikingRandomMoveEvent e)
-        {
-            if (e.IsEnabled)
+            if (closestObject == null && currentTargetMask.Equals(defaultTargetMask))
+            {
+                SwapTargetMask(true);
+                isTrollSpotted = false;
+            }
+
+            if (closestObject == null)
             {
                 moveTo.DisableGoal();
-                SwapTargetMask(true);
-                isRandom = true;
             }
             else
             {
                 moveTo.SetGoal(closestObject);
-                SwapTargetMask(false);
-                isRandom = false;
             }
         }
     }

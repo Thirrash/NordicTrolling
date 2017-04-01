@@ -21,11 +21,16 @@ namespace Movement
 
         private void Update()
         {
-            if (goal == null && goalPos == null) return;
+            if (CheckIfGoalIsNull()) return;
             if( goal != null )
                 agent.destination = goal.position; //new Vector3(goal.position.x, 0, goal.position.z);
-            else if( goalPos != null )
+            else if( goalPos != Vector3.zero )
                 agent.destination = goalPos;
+
+            if (CheckIfInEndPosition())
+            {
+                DisableGoalPosition();
+            }
         }
 
         #endregion
@@ -48,6 +53,23 @@ namespace Movement
         public void DisableGoal()
         {
             goal = null;
+        }
+
+        public void DisableGoalPosition()
+        {
+            goalPos = Vector3.zero;
+        }
+
+        public bool CheckIfInEndPosition()
+        {
+            if (agent.pathPending) return false;
+            if (!(agent.remainingDistance <= agent.stoppingDistance)) return false;
+            return !agent.hasPath || agent.velocity.sqrMagnitude == 0f;
+        }
+
+        public bool CheckIfGoalIsNull()
+        {
+            return goal == null && goalPos == Vector3.zero;
         }
         #endregion
     }
