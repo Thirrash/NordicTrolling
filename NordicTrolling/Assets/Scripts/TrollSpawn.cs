@@ -22,8 +22,10 @@ public class TrollSpawn : MonoBehaviour
             yield return new WaitUntil( ( ) => Input.GetMouseButtonDown( 0 ) );
 
             Ray ray = cam.ScreenPointToRay( Input.mousePosition );
-            if( !Physics.Raycast( ray, out hit, ConstantsLayer.BIT( ConstantsLayer.terrainLayer ) ) )
+            if( !Physics.Raycast( ray, out hit, ConstantsLayer.BIT( ConstantsLayer.terrain ) ) )
                 continue;
+            else
+                Debug.Log( hit.collider.gameObject.layer );
 
             if( count.GetTrollCount( choice.currTrollNr ) <= 0 )
                 continue;

@@ -65,7 +65,7 @@ public class VikingAttack : MonoBehaviour
 
     }
 
-    void SetAgentActive(bool active)
+    public void SetAgentActive(bool active)
     {
         agent.enabled = active;
         moveTo.enabled = active;

@@ -5,6 +5,6 @@ using UnityEngine;
 public class TrollBase : MonoBehaviour
 {
     void Start( ) {
-        gameObject.layer = ConstantsLayer.trollLayer;
+        gameObject.layer = ConstantsLayer.troll;
     }
 }
