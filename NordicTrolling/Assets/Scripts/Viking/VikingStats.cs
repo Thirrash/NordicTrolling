@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using Events;
 using Managers;
+using Movement;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Viking
 {
@@ -31,6 +33,8 @@ namespace Viking
         void Death( ) {
             //Time.timeScale = 0.0f;
             GetComponent<Animator>().SetTrigger("Die");
+            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<MoveTo>().enabled = false;
             EventManager.Instance.QueueEvent( new GameOverEvent( false ) );
         }
     }
