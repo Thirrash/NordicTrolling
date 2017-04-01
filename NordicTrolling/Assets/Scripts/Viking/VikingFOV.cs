@@ -10,25 +10,37 @@ namespace Viking
     public class VikingFOV : FieldOfView
     {
         private MoveTo moveTo;
+        GameObject closestObject = null;
 
-        protected override void Awake( ) {
-            moveTo = GetComponent<MoveTo>( );
+        protected override void Awake()
+        {
+            moveTo = GetComponent<MoveTo>();
         }
 
-        protected override void TakeActionOnVisibleObjects( ) {
+        protected override void TakeActionOnVisibleObjects()
+        {
             float distance = Mathf.Infinity;
-            GameObject closestObject = null;
-            foreach( var visibleObject in VisibleObjects ) {
-                var dis = Vector3.Distance( transform.position, visibleObject.transform.position );
-                if( dis < distance ) {
+            closestObject = null;
+            foreach (var visibleObject in VisibleObjects)
+            {
+                var dis = Vector3.Distance(transform.position, visibleObject.transform.position);
+                if (dis < distance)
+                {
                     distance = dis;
                     closestObject = visibleObject;
                 }
             }
-            if( distance < Mathf.Infinity ) {
-                if( closestObject == null ) return;
-                moveTo.SetGoal( closestObject );
+            //if (distance < Mathf.Infinity)
+            //{
+            if (closestObject == null)
+            {
+                moveTo.DisableGoal();
             }
+            else
+            {
+                moveTo.SetGoal(closestObject);
+            }
+            //}
         }
     }
 }

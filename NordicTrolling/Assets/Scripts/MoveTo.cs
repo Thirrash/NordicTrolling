@@ -35,6 +35,16 @@ namespace Movement
         public void SetGoal( Vector3 pos ) {
             goal = pos;
         }
+
+        public void SetGoal(Transform transform)
+        {
+            goal = transform;
+        }
+
+        public void DisableGoal()
+        {
+            goal = null;
+        }
         #endregion
     }
 }
