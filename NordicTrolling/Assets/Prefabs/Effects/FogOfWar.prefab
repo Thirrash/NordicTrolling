@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4771977813412270}
   - component: {fileID: 199463013639388428}
   - component: {fileID: 198442204771025700}
+  - component: {fileID: 114638773870348176}
   m_Layer: 0
   m_Name: FogOfWar
   m_TagString: Untagged
@@ -35,12 +36,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215282601723964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.65, y: 2.6, z: 0}
+  m_LocalPosition: {x: 8.25, y: 0, z: 3.41}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114638773870348176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215282601723964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b0551bb7327d14babc38961ead1f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viking: {fileID: 0}
+  yDownTransform: -16
+  doMoveDuration: 2
+  fogDiscoverDistance: 15
 --- !u!198 &198442204771025700
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -96,7 +112,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -389967289
+  randomSeed: 453902996
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -551,13 +567,13 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 3
     enabled: 1
-    type: 12
-    radius: 1.79
+    type: 5
+    radius: 0.1
     angle: 25
     length: 5
-    boxX: 5.3
-    boxY: 0
-    boxZ: 4.5
+    boxX: 2
+    boxY: 2
+    boxZ: 2
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
