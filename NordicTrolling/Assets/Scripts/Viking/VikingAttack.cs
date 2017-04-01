@@ -47,7 +47,7 @@ namespace Viking
             {
                 if (fightParticles == null)
                 {
-                    fightParticles = EffectSpawner.SpawnFightParticles(transform.position + transform.forward + Vector3.up);
+                    fightParticles = EffectSpawner.SpawnFightParticles(transform.position + transform.forward + (3 *Vector3.up));
                     SetAgentActive(false);
                     detectedTroll = hit.collider.gameObject;
 
