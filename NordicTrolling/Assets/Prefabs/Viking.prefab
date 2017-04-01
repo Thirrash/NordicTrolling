@@ -128,9 +128,12 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 2048
-  targetMask:
+  defaultTargetMask:
     serializedVersion: 2
     m_Bits: 512
+  alternativeTargetMask:
+    serializedVersion: 2
+    m_Bits: 1024
   coroutineDelay: 0.4
   viewAngle: 360
   viewRadius: 40

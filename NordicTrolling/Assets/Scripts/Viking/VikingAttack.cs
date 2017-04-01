@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Events;
+using Managers;
 using Movement;
 using UnityEngine;
 using UnityEngine.AI;

@@ -9,7 +9,12 @@ namespace FOV
         [SerializeField]
         protected LayerMask obstacleMask;
         [SerializeField]
-        protected LayerMask targetMask;
+        protected LayerMask defaultTargetMask;
+
+        [SerializeField]
+        protected LayerMask alternativeTargetMask;
+
+        private LayerMask currentTargetMask;
 
         [SerializeField]
         private float coroutineDelay = 0.4f;
@@ -26,6 +31,8 @@ namespace FOV
         {
             VisibleObjects = new List<GameObject>();
             StartDetectingCoroutine();
+
+            currentTargetMask = defaultTargetMask;
         }
 
         public void StartDetectingCoroutine()
@@ -48,7 +55,7 @@ namespace FOV
         private void FindVisibleObjects()
         {
             VisibleObjects.Clear();
-            var targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+            var targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, currentTargetMask);
 
             //foreach (var target in targetsInViewRadius)
             //{
@@ -68,7 +75,6 @@ namespace FOV
                     VisibleObjects.Add(target);
                 }
             }
-
         }
 
         protected abstract void TakeActionOnVisibleObjects();
@@ -78,6 +84,11 @@ namespace FOV
             if (!angleIsGlobal)
                 angleInDegrees += transform.eulerAngles.y;
             return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0.0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        }
+
+        public void SwapTargetMask(bool setAlternativeMask)
+        {
+            currentTargetMask = setAlternativeMask ? alternativeTargetMask : defaultTargetMask;
         }
     } 
 }

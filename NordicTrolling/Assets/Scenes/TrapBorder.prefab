@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65452119736018126}
   - component: {fileID: 23153582022789708}
   - component: {fileID: 114021444408715794}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: TrapBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
