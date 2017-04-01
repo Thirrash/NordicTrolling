@@ -31,7 +31,7 @@ namespace Traps
             part.Stop( );
 
             col = GetComponent<SphereCollider>( );
-            col.radius = radius;
+            col.radius = radius + 4;
             col.enabled = false;
 
             ParticleSystem.EmissionModule em = part.emission;

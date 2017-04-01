@@ -113,9 +113,9 @@ public class CameraMovement : MonoBehaviour
         if( offset == 0.0f )
             return;
 
-        if( cam.transform.position.z < zoomOutBound && offset < 0.0f )
+        if( cam.transform.position.y > zoomOutBound && offset < 0.0f )
             return;
-        else if ( cam.transform.position.z > zoomInBound && offset > 0.0f )
+        else if ( cam.transform.position.y < zoomInBound && offset > 0.0f )
             return;
 
         cam.transform.Translate( new Vector3( 0.0f, 0.0f, offset ) );

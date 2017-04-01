@@ -23,6 +23,8 @@ namespace Traps
 
             if( col.gameObject.layer == ConstantsLayer.viking )
                 VikingSing.Inst.stats.TakeDamage( damageValue * Time.deltaTime );
+            else if( col.gameObject.layer == ConstantsLayer.troll )
+                Destroy( col.gameObject );
         }
     }
 }

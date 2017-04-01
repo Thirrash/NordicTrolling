@@ -38,8 +38,8 @@ namespace Traps
                 yield return new WaitUntil( ( ) => isTriggered );
                 isTriggeredPointer( false );
 
-                GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
-                arrow.GetComponent<Rigidbody>( ).AddForce( new Vector3( 0.0f, 0.0f, arrowSpeed ), ForceMode.VelocityChange );
+                GameObject arrow = Instantiate( spawned, indicator.transform.position, indicator.transform.rotation );
+                arrow.GetComponent<Rigidbody>( ).AddForce( Vector3.Normalize( indicator.transform.rotation.eulerAngles ) * arrowSpeed, ForceMode.VelocityChange );
                 arrow.GetComponent<Arrow>( ).damage = damageValue;
 
                 yield return new WaitForSecondsRealtime( cooldown );

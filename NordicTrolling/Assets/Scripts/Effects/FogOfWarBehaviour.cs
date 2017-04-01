@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FogOfWarBehaviour : MonoBehaviour
 {
-
     private ParticleSystem particleSystem;
     [SerializeField]
     private GameObject viking;

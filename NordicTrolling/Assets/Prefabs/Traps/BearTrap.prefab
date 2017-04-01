@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4350811199878444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BearTrap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 95757015790483712}
   - component: {fileID: 65862594132162406}
   - component: {fileID: 114039088964022742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BearTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114734472129719476}
   - component: {fileID: 23440121625107140}
   - component: {fileID: 114852100056617570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114538170413478102}
   - component: {fileID: 23004761961961768}
   - component: {fileID: 114184781770683088}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 114040831698309276}
   - component: {fileID: 23432135533836230}
   - component: {fileID: 114659308383245020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 114056692548264008}
   - component: {fileID: 23189837308714716}
   - component: {fileID: 114098056105038096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4328589900052544}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BearTrapLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 114641285819659668}
   - component: {fileID: 23310089799572532}
   - component: {fileID: 114915681336457460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4330095508639402}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BearTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4918885487797996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BearTrapRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 114669913986409020}
   - component: {fileID: 23068859354358168}
   - component: {fileID: 114360277864331840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 114210483902156144}
   - component: {fileID: 23572596960988490}
   - component: {fileID: 114448218410862742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 114079648015682486}
   - component: {fileID: 23409285349016966}
   - component: {fileID: 114477909749492608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 114802984178603690}
   - component: {fileID: 23142313942680418}
   - component: {fileID: 114808266524326556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 114139900465753928}
   - component: {fileID: 23709433210967814}
   - component: {fileID: 114623966132136538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 114401951801042896}
   - component: {fileID: 23832301752139720}
   - component: {fileID: 114110302748587296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 114468631894150096}
   - component: {fileID: 23722642142038612}
   - component: {fileID: 114890455514394312}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,15 +414,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052249877657688}
-  m_LocalRotation: {x: -0.013962104, y: 0, z: 0, w: 0.9999026}
-  m_LocalPosition: {x: -21.39, y: 0.66, z: -14.19}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 17.99, y: -4.519245, z: -49.86}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 4328589900052544}
   - {fileID: 4918885487797996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.6, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4384984196685118
 Transform:
   m_ObjectHideFlags: 1

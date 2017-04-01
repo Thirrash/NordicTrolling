@@ -7,24 +7,23 @@ namespace Traps
 {
     public class TrapSingleDamage : TrapBase
     {
-        protected override void Start()
-        {
-            base.Start();
+        protected override void Start( ) {
+            base.Start( );
         }
 
-        protected override void OnCollisionEnter(Collision col)
-        {
-            base.OnCollisionEnter(col);
+        protected override void OnCollisionEnter( Collision col ) {
+            base.OnCollisionEnter( col );
 
-            if (col.gameObject.layer == ConstantsLayer.viking)
-            {
-                VikingSing.Inst.stats.TakeDamage(damageValue);
-                GetComponent<Animator>().SetTrigger("Closing");
-                Destroy(gameObject.GetComponent<BoxCollider>());
-                Destroy(this);
+            if( col.gameObject.layer == ConstantsLayer.viking ) {
+                VikingSing.Inst.stats.TakeDamage( damageValue );
+                GetComponent<Animator>( ).SetTrigger( "Closing" );
+                Destroy( gameObject.GetComponent<BoxCollider>( ) );
+                Destroy( this );
+            } else if( col.gameObject.layer == ConstantsLayer.troll ) {
+                GetComponent<Animator>( ).SetTrigger( "Closing" );
+                Destroy( gameObject.GetComponent<BoxCollider>( ) );
+                Destroy( col.gameObject );
             }
-
-            
         }
     }
 }

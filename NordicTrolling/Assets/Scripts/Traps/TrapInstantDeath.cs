@@ -16,6 +16,8 @@ namespace Traps
 
             if( col.gameObject.layer == ConstantsLayer.viking )
                 VikingSing.Inst.stats.InstaKill( );
+            else if( col.gameObject.layer == ConstantsLayer.troll )
+                Destroy( col.gameObject );
         }
     }
 }

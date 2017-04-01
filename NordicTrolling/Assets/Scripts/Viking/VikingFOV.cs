@@ -21,7 +21,7 @@ namespace Viking
 
         private bool isRandom;
         private bool isTrollSpotted;
-        private int positionRange = 10;
+        private int positionRange = 20;
 
         protected override void Awake()
         {

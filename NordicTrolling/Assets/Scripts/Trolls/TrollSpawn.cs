@@ -20,30 +20,24 @@ namespace Trolls
             StartCoroutine( OnTerrainClick( ) );
         }
 
-        void Update( ) {
-
-        }
-
         IEnumerator OnTerrainClick( ) {
             while( true ) {
                 yield return new WaitUntil( ( ) => Input.GetMouseButtonDown( 0 ) );
 
                 Ray ray = cam.ScreenPointToRay( Input.mousePosition );
                 RaycastHit hit;
-                LayerMask mask = 1 << 8;
 
-                if( !Physics.Raycast( ray, out hit, 100.0f, mask ) )
+                Physics.Raycast( ray, out hit, 100.0f );
+                if( hit.collider.gameObject.layer != ConstantsLayer.terrain )
                     continue;
 
                 if( count.GetTrollCount( choice.currTrollNr ) <= 0 )
                     continue;
 
-                Debug.Log( choice.currTrollNr );
-                GameObject trollSpawned = Instantiate( choice.currTroll, hit.point, Quaternion.identity ) as GameObject;
+                GameObject trollSpawned = Instantiate( choice.currTroll, hit.point + new Vector3( 0.0f, 1.0f, 0.0f ), Quaternion.identity ) as GameObject;
                 count.ChangeTrollCount( choice.currTrollNr, count.GetTrollCount( choice.currTrollNr ) - 1 );
 
-                yield return new WaitForSecondsRealtime(0.1f);
-                Debug.Log( trollSpawned.GetComponent<TrollBase>( ).IsStanding );
+                yield return new WaitForSecondsRealtime( 0.1f );
                 if( !trollSpawned.GetComponent<TrollBase>( ).IsStanding ) {
                     yield return new WaitForSecondsRealtime( 0.1f );
                     TrollWalking troll = trollSpawned.GetComponent<TrollWalking>( );
@@ -51,7 +45,8 @@ namespace Trolls
                         yield return new WaitUntil( ( ) => Input.GetMouseButtonDown( 0 ) );
 
                         ray = cam.ScreenPointToRay( Input.mousePosition );
-                        if( !Physics.Raycast( ray, out hit, 100.0f, mask ) )
+                        Physics.Raycast( ray, out hit, 100.0f );
+                        if( hit.collider.gameObject.layer != ConstantsLayer.terrain )
                             continue;
 
                         troll.EndPoint = hit.point;

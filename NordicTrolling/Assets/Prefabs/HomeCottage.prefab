@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23639956998260256}
   - component: {fileID: 65606638191735402}
   - component: {fileID: 114095129528501600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HomeCottage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861455274762276}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.45, y: 1.0385023, z: 20.31}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 2}
+  m_LocalPosition: {x: 2.06, y: 0.57, z: 69.3513}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,7 +91,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31.89, y: 28.92, z: 3.2572632}
+  m_Size: {x: 33, y: 30, z: 3}
   m_Center: {x: -4.1022735, y: 4.571214, z: 1.4404342}
 --- !u!114 &114095129528501600
 MonoBehaviour:
