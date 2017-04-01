@@ -6,6 +6,8 @@ namespace Traps
 {
     public class TrapBase : MonoBehaviour
     {
+        [SerializeField] protected float damageValue = 0.0f;
+
         protected virtual void Start( ) {
 
         }
@@ -15,6 +17,10 @@ namespace Traps
         }
 
         protected virtual void OnCollisionStay( Collision col ) {
+
+        }
+
+        protected virtual void OnTriggerStay( Collider col ) {
 
         }
     }

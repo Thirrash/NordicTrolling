@@ -7,8 +7,6 @@ namespace Traps
 {
     public class TrapContinousDamage : TrapBase
     {
-        public float damageValue = 0.0f;
-
         protected override void Start( ) {
             base.Start( );
         }
