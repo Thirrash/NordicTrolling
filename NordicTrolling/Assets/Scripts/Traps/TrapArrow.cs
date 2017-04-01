@@ -26,6 +26,10 @@ namespace Traps
             StartCoroutine( Spawn( ( x ) => { isTriggered = x; } ) );
         }
 
+        void Update( ) {
+            Debug.Log( indicator.transform.position );
+        }
+
         protected override void OnTriggerEnter( Collider col ) {
             base.OnTriggerStay( col );
 
@@ -38,8 +42,9 @@ namespace Traps
                 yield return new WaitUntil( ( ) => isTriggered );
                 isTriggeredPointer( false );
 
-                GameObject arrow = Instantiate( spawned, indicator.transform.position, indicator.transform.rotation );
-                arrow.GetComponent<Rigidbody>( ).AddForce( Vector3.Normalize( indicator.transform.rotation.eulerAngles ) * arrowSpeed, ForceMode.VelocityChange );
+                GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
+                Debug.Log( indicator.transform.rotation.eulerAngles );
+                arrow.GetComponent<Rigidbody>( ).AddForce( arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange );
                 arrow.GetComponent<Arrow>( ).damage = damageValue;
 
                 yield return new WaitForSecondsRealtime( cooldown );

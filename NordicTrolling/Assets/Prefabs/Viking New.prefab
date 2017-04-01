@@ -912,7 +912,7 @@ MonoBehaviour:
     m_Bits: 1536
   coroutineDelay: 0.1
   viewAngle: 360
-  viewRadius: 12
+  viewRadius: 20
 --- !u!114 &114112058098776432
 MonoBehaviour:
   m_ObjectHideFlags: 1
