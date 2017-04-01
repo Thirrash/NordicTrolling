@@ -29,7 +29,8 @@ namespace Viking
         }
 
         void Death( ) {
-            Time.timeScale = 0.0f;
+            //Time.timeScale = 0.0f;
+            GetComponent<Animator>().SetTrigger("Die");
             EventManager.Instance.QueueEvent( new GameOverEvent( false ) );
         }
     }

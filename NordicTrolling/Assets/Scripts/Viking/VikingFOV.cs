@@ -56,6 +56,7 @@ namespace Viking
                 {
                     moveTo.SetGoal(closestObject);
                 }
+                HandleAnim(closestObject);
             }
             else
             {
@@ -100,6 +101,21 @@ namespace Viking
             {
                 moveTo.SetGoal(closestObject);
             }
+        }
+
+        void HandleAnim(GameObject gameObject)
+        {
+            if (closestObject == null) return;
+            if (LayerMask.LayerToName(gameObject.layer) == "Troll")
+            {
+                GetComponent<Animator>().SetTrigger("Run");
+            }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("Walk");
+            }
+
+
         }
     }
 }
