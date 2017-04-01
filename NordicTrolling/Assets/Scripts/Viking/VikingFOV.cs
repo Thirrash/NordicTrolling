@@ -51,6 +51,7 @@ namespace Viking
                     SwapTargetMask(true);
                     isTrollSpotted = false;
                     moveTo.DisableGoal();
+                    GetComponent<Animator>().SetTrigger("Walk");
                 }
                 else
                 {
@@ -66,6 +67,7 @@ namespace Viking
                     {
                         isTrollSpotted = true;
                         SwapTargetMask(false);
+                        GetComponent<Animator>().SetTrigger("Run");
                     }
                 }
                 float dupa = (Random.Range(0, VisibleObjects.Count));
@@ -85,6 +87,8 @@ namespace Viking
                         moveTo.SetGoal(new Vector3(Random.Range(-positionRange, positionRange), 1, Random.Range(-positionRange, positionRange)));
                     }
                 }
+                HandleAnim(closestObject);
+
             }
 
             if (closestObject == null && currentTargetMask.Equals(defaultTargetMask))
@@ -105,15 +109,15 @@ namespace Viking
 
         void HandleAnim(GameObject gameObject)
         {
-            if (closestObject == null) return;
-            if (LayerMask.LayerToName(gameObject.layer) == "Troll")
-            {
-                GetComponent<Animator>().SetTrigger("Run");
-            }
-            else
-            {
-                GetComponent<Animator>().SetTrigger("Walk");
-            }
+            //if (gameObject == null) return;
+            //if (LayerMask.LayerToName(gameObject.layer) == "Troll")
+            //{
+            //    GetComponent<Animator>().SetTrigger("Run");
+            //}
+            //else
+            //{
+            //    GetComponent<Animator>().SetTrigger("Walk");
+            //}
 
 
         }
