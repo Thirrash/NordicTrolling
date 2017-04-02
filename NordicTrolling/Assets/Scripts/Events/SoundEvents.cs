@@ -27,6 +27,18 @@ namespace Events
         }
     }
 
+    public class PlaySimpleSoundFromListEvent : GameEvent
+    {
+        public List<string> SoundsToPlay { get; set; }
+
+        public PlaySimpleSoundFromListEvent(List<string> soundsToPlay)
+        {
+            SoundsToPlay = soundsToPlay;
+
+            args = new List<object> { SoundsToPlay };
+        }
+    }
+
     public class PlaySimpleSoundWithPitchEvent : GameEvent
     {
         public string SoundToPlay { get; set; }

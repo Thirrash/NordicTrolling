@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Events;
+using Enums;
+using Events;
 using Managers;
 using Movement;
 using UnityEngine;
@@ -41,10 +43,20 @@ namespace Viking
         void DetectFight( ) {
             if( isFighting ) return;
             RaycastHit hit;
+<<<<<<< HEAD
             if( Physics.Raycast( transform.position, transform.forward, out hit, RayDist, TargetMask ) ) {
                 if( fightParticles == null ) {
                     fightParticles = EffectSpawner.SpawnFightParticles( transform.position + transform.forward + ( 3 * Vector3.up ) );
                     SetAgentActive( false );
+=======
+            if (Physics.Raycast(transform.position, transform.forward, out hit, RayDist, TargetMask))
+            {
+                if (fightParticles == null)
+                {
+                    fightParticles = EffectSpawner.SpawnFightParticles(transform.position + transform.forward + (3 *Vector3.up));
+                    SetAgentActive(false);
+                    EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.Fight));
+>>>>>>> sounds
                     detectedTroll = hit.collider.gameObject;
                     FightDuration = detectedTroll.GetComponent<Trolls.TrollBase>( ).FightTime;
                     isFighting = true;
@@ -65,10 +77,21 @@ namespace Viking
                 agent.speed = 3.5f;
         }
 
+<<<<<<< HEAD
         void HandleFight( ) {
             if( fightTimer < FightDuration ) return;
             if( detectedTroll != null ) {
                 Destroy( detectedTroll );
+=======
+        void HandleFight()
+        {
+            if (fightTimer < FightDuration) return;
+            if (detectedTroll != null)
+            {
+                Destroy(detectedTroll);
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundFromListEvent(new List<string> { SoundsEnum.TrollDie1, SoundsEnum.TrollDie2, SoundsEnum.TrollDie3 }));
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundFromListEvent(new List<string> { SoundsEnum.VikingLaugh1, SoundsEnum.VikingLaugh2}));
+>>>>>>> sounds
             }
             Destroy( fightParticles );
             SetAgentActive( true );
