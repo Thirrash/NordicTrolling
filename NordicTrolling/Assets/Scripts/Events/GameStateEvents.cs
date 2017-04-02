@@ -46,7 +46,7 @@ namespace Events
     {
         public QuitGameEvent()
         {
-            
+
         }
     }
 }

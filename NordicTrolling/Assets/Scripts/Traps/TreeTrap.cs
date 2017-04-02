@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 
 public class TreeTrap : MonoBehaviour
@@ -16,8 +18,10 @@ public class TreeTrap : MonoBehaviour
         collider = GetComponent<BoxCollider>( );
     }
 
-    private void OnTriggerEnter( Collider other ) {
-        if( other.gameObject.layer == ConstantsLayer.viking )
+    private void OnTriggerEnter( Collider other )
+    {
+        if (other.gameObject.layer == ConstantsLayer.viking)
+            EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.TreeFall));
             tree.transform.DORotate( rotation, 1f, RotateMode.WorldAxisAdd );
         Destroy( gameObject );
     }
