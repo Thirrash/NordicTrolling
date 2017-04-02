@@ -23,28 +23,25 @@ namespace Traps
         float offset = 0.0f;
 
         SphereCollider col;
-        ParticleSystem part;
+        public ParticleSystem part;
         float timer;
 
         protected override void Start( ) {
             base.Start( );
             timer = offset;
 
-            part = gameObject.GetComponentInChildren<ParticleSystem>( );
             part.Stop( );
 
             col = GetComponent<SphereCollider>( );
-            col.radius = radius + 4;
+            col.radius = radius;
             col.enabled = false;
 
             ParticleSystem.EmissionModule em = part.emission;
             em.enabled = false;
 
-            ParticleSystem.ShapeModule shape = part.shape;
-            shape.radius = radius;
-
             ParticleSystem.MainModule main = part.main;
             main.duration = timeActive - main.startLifetime.constant;
+            main.startLifetime = radius / 5.0f;
             
             StartCoroutine( ToggleParticles( ) );
         }
