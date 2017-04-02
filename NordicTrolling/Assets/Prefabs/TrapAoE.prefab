@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4478158609053696}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 65225229938941338}
   - component: {fileID: 65523471983112634}
   - component: {fileID: 114971215877244822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrapAoE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866022886108842}
   m_LocalRotation: {x: -0.50000006, y: 0.5000002, z: 0.4999999, w: 0.49999997}
-  m_LocalPosition: {x: 1.92, y: -4.51, z: -58.57}
+  m_LocalPosition: {x: 8.55, y: -4.51, z: -2.11}
   m_LocalScale: {x: 2.500001, y: 2.500001, z: 1.5}
   m_Children:
   - {fileID: 4478158609053696}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageValue: 5
+  offset: 0.3
   cooldown: 3
   arrowSpeed: 12
   spawned: {fileID: 1399375679285794, guid: e4494e54794180441bbe66ac03e2d18f, type: 2}

@@ -10,7 +10,7 @@ namespace Trolls
 {
     public class TrollSpawn : MonoBehaviour
     {
-        public float cooldownTime = 0.5f;
+        public float cooldownTime = 1.0f;
         TrollChoice choice;
         TrollCount count;
         Camera cam;
@@ -44,7 +44,6 @@ namespace Trolls
                 yield return new WaitForSecondsRealtime(0.1f);
                 if (!choice.currTroll.GetComponent<TrollBase>().IsStanding)
                 {
-                    yield return new WaitForSecondsRealtime(0.1f);
                     while (true)
                     {
                         yield return new WaitUntil(() => Input.GetMouseButtonUp(0));

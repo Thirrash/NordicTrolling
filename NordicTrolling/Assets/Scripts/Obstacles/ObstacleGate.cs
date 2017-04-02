@@ -32,7 +32,7 @@ namespace Obstacles
             if( timer >= gateOpenedTime && timer < gateOpenedTime + gateClosingTime ) {
                 gateObj.transform.localScale = new Vector3( scale.x, 1.5f * ( timer - gateOpenedTime ) / gateClosingTime, scale.z );
                 gateObj.transform.localPosition = new Vector3( pos.x, -1.0f + 0.75f * ( timer - gateOpenedTime ) / gateClosingTime, pos.z );
-            } else if( timer >= gateOpenedTime + gateClosingTime + gateClosedTime && 
+            } else if( timer >= gateOpenedTime + gateClosingTime + gateClosedTime &&
                 timer < gateOpenedTime + 2.0f * gateClosingTime + gateClosedTime ) {
                 gateObj.transform.localScale = new Vector3( scale.x, 1.5f - 1.5f * ( timer - gateOpenedTime - gateClosingTime - gateClosedTime ) / gateClosingTime, scale.z );
                 gateObj.transform.localPosition = new Vector3( pos.x, -0.25f - 0.75f * ( timer - gateOpenedTime - gateClosingTime - gateClosedTime ) / gateClosingTime, pos.z );
