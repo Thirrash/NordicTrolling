@@ -6,7 +6,7 @@ namespace Trolls
 {
     public class TrollChoice : MonoBehaviour
     {
-        public GameObject[] trollObjs = new GameObject[5];
+        public GameObject[] trollObjs = new GameObject[4];
         public GameObject currTroll;
         public int currTrollNr;
 
@@ -28,8 +28,6 @@ namespace Trolls
                 currTrollNr = 2;
             else if( Input.GetButtonDown( "Select Troll 4" ) )
                 currTrollNr = 3;
-            else if( Input.GetButtonDown( "Select Troll 5" ) )
-                currTrollNr = 4;
 
             currTroll = trollObjs[currTrollNr];
         }

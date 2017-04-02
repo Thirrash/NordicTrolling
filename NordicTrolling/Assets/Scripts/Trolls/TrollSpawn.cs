@@ -27,7 +27,7 @@ namespace Trolls
                 Ray ray = cam.ScreenPointToRay( Input.mousePosition );
                 RaycastHit hit;
 
-                Physics.Raycast( ray, out hit, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain ) );
+                Physics.Raycast( ray, out hit, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain, ConstantsLayer.obstacle ) );
                 if( hit.collider.gameObject.layer != ConstantsLayer.terrain )
                     continue;
 
@@ -43,7 +43,7 @@ namespace Trolls
 
                         RaycastHit hit2;
                         ray = cam.ScreenPointToRay( Input.mousePosition );
-                        Physics.Raycast( ray, out hit2, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain ) );
+                        Physics.Raycast( ray, out hit2, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain, ConstantsLayer.obstacle ) );
                         if( hit2.collider.gameObject.layer != ConstantsLayer.terrain )
                             continue;
 

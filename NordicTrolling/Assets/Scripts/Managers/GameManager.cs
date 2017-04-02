@@ -72,11 +72,17 @@ namespace Managers
             LastLoadedLevel = new LoadedLevelInfo();
             LastLoadedLevel.SceneIndex = SceneManager.GetActiveScene().buildIndex;
             LastLoadedLevel.SceneName = SceneManager.GetActiveScene().name;
+            StartCoroutine( RestartGame( ) );
         }
 
         private void QuitGame(QuitGameEvent e)
         {
             Application.Quit();
+        }
+
+        IEnumerator RestartGame( ) {
+            yield return new WaitUntil( ( ) => Input.GetButtonDown( "Restart" ) );
+            SceneManager.LoadScene( LastLoadedLevel.SceneIndex );
         }
 		
         #endregion

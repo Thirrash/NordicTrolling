@@ -30,6 +30,8 @@ public class CanvasController : MonoBehaviour
         {
             gameOverText.text = "Your viking died!";
         }
+
+        gameOverText.text += "\nPress \"Restart\"(default: R) to play again";
     }
 
     void OnDestroy()

@@ -8,8 +8,8 @@ namespace Trolls
     public class TrollCount : MonoBehaviour
     {
         public Canvas canvas;
-        [SerializeField] Text[] trollText = new Text[5];
-        [SerializeField] int[] trollCount = new int[5];
+        [SerializeField] Text[] trollText = new Text[4];
+        [SerializeField] int[] trollCount = new int[4];
 
         void Start( ) {
             for( int i = 0; i < trollCount.Length; i++ )
