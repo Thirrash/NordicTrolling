@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 
 namespace Traps
@@ -39,6 +42,7 @@ namespace Traps
                 isTriggeredPointer( false );
 
                 GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.DragonWhoosh));
                 arrow.GetComponent<Rigidbody>( ).AddForce( arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange );
                 arrow.GetComponent<Arrow>( ).damage = damageValue;
 
