@@ -11,6 +11,9 @@ namespace Traps
     public class TrapArrow : TrapBase
     {
         [SerializeField]
+        float offset;
+
+        [SerializeField]
         float cooldown;
 
         [SerializeField]
@@ -41,6 +44,7 @@ namespace Traps
                 yield return new WaitUntil( ( ) => isTriggered );
                 isTriggeredPointer( false );
 
+                yield return new WaitForSecondsRealtime( offset );
                 GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
                 EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.DragonWhoosh));
                 arrow.GetComponent<Rigidbody>( ).AddForce( arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange );

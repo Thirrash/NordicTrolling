@@ -22563,6 +22563,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4771977813412270, guid: 17f116610b664324eaf839ea6a50257d,
     type: 2}
   m_PrefabInternal: {fileID: 1188703479}
+--- !u!1 &731575731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 731575732}
+  - component: {fileID: 731575734}
+  - component: {fileID: 731575733}
+  m_Layer: 5
+  m_Name: PopUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &731575732
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731575731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1398319151}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 30, y: 100}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &731575733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731575731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &731575734
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731575731}
 --- !u!1001 &736517168
 Prefab:
   m_ObjectHideFlags: 0
@@ -30236,6 +30310,7 @@ GameObject:
   - component: {fileID: 930917264}
   - component: {fileID: 930917263}
   - component: {fileID: 930917266}
+  - component: {fileID: 930917267}
   m_Layer: 0
   m_Name: TrollManager
   m_TagString: Untagged
@@ -30303,7 +30378,24 @@ MonoBehaviour:
   - {fileID: 125619814}
   - {fileID: 424069792}
   - {fileID: 1451293901}
-  trollCount: 08000000020000000400000004000000
+  trollCount: 05000000030000000200000002000000
+--- !u!114 &930917267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930917262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c5370f6f830ce438af6d68c6feb29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate:
+  - 14.8
+  - 35.2
+  - 24.8
+  - 40.2
+  popUp: {fileID: 731575733}
 --- !u!1 &940408977
 GameObject:
   m_ObjectHideFlags: 0
@@ -37972,22 +38064,6 @@ Prefab:
       propertyPath: m_Name
       value: DragonStatue_LOD1 (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 4932875886688600, guid: e2338642af06ea946962f5d87cbfa2d6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.500001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4932875886688600, guid: e2338642af06ea946962f5d87cbfa2d6, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2.500001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866022886108842, guid: e2338642af06ea946962f5d87cbfa2d6, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331345681855390, guid: e2338642af06ea946962f5d87cbfa2d6, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2338642af06ea946962f5d87cbfa2d6, type: 2}
   m_IsPrefabParent: 0
@@ -40218,7 +40294,7 @@ MonoBehaviour:
   verticalBoundUp: 56
   verticalBoundDown: -78
   zoomInBound: 10
-  zoomOutBound: 35
+  zoomOutBound: 25
   chooseKeyboardMovement: 1
 --- !u!114 &1214901049
 MonoBehaviour:
@@ -41688,14 +41764,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4755777491493476, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755777491493476, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.8370638
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755777491493476, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -46486,6 +46554,7 @@ RectTransform:
   - {fileID: 1975062820}
   - {fileID: 859757216}
   - {fileID: 608702092}
+  - {fileID: 731575732}
   m_Father: {fileID: 1113633639}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63851,10 +63920,6 @@ Prefab:
     - target: {fileID: 1130601851284534, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
       propertyPath: m_Name
       value: Gate (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755777491493476, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.3008474
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd648ff2ca7544d40a3e2ef880c58c41, type: 2}
