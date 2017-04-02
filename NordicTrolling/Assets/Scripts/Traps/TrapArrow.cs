@@ -39,7 +39,6 @@ namespace Traps
                 isTriggeredPointer( false );
 
                 GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
-                Debug.Log( indicator.transform.rotation.eulerAngles );
                 arrow.GetComponent<Rigidbody>( ).AddForce( arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange );
                 arrow.GetComponent<Arrow>( ).damage = damageValue;
 
