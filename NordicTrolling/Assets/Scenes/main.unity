@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.16176468, b: 0.16176468, a: 1}
+  m_Color: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18630,8 +18630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
-  m_SizeDelta: {x: 263.4, y: 29.8}
+  m_AnchoredPosition: {x: 24, y: -24}
+  m_SizeDelta: {x: 286, y: 28}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &608702093
 MonoBehaviour:
@@ -18645,7 +18645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.784, g: 0.299488, b: 0.299488, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21902,15 +21902,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1215282601723964, guid: 17f116610b664324eaf839ea6a50257d, type: 2}
-      propertyPath: m_Name
-      value: FogOfWar (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 114638773870348176, guid: 17f116610b664324eaf839ea6a50257d,
         type: 2}
       propertyPath: viking
       value: 
       objectReference: {fileID: 564676998}
+    - target: {fileID: 1215282601723964, guid: 17f116610b664324eaf839ea6a50257d, type: 2}
+      propertyPath: m_Name
+      value: FogOfWar (8)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 17f116610b664324eaf839ea6a50257d, type: 2}
   m_IsPrefabParent: 0
@@ -22591,7 +22591,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398319151}
-  m_RootOrder: 15
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -28227,8 +28227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17, y: -17}
-  m_SizeDelta: {x: 269.8, y: 36}
+  m_AnchoredPosition: {x: 18, y: -18}
+  m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &859757217
 MonoBehaviour:
@@ -28242,7 +28242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2794118, g: 0.2794118, b: 0.2794118, a: 1}
+  m_Color: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30391,10 +30391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate:
-  - 14.8
-  - 35.2
   - 24.8
-  - 40.2
+  - 45.2
+  - 35.2
+  - 49.8
   popUp: {fileID: 731575733}
 --- !u!1 &940408977
 GameObject:

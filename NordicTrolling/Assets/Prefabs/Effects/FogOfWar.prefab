@@ -35,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215282601723964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.25, y: 0, z: 3.41}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.437157, y: -11.339089, z: -13.633797}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   viking: {fileID: 0}
   yDownTransform: -16
   doMoveDuration: 2
-  fogDiscoverDistance: 15
+  fogDiscoverDistance: 21
 --- !u!198 &198442204771025700
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -112,7 +112,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 453902996
+  randomSeed: 1679794305
   InitialModule:
     serializedVersion: 3
     enabled: 1
