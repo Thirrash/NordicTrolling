@@ -55,7 +55,6 @@ namespace Trolls
                     }
                 }
 
-
                 Debug.Log( "Spawned Troll!" );
                 yield return new WaitForSecondsRealtime( cooldownTime );
             }

@@ -26,10 +26,6 @@ namespace Traps
             StartCoroutine( Spawn( ( x ) => { isTriggered = x; } ) );
         }
 
-        void Update( ) {
-            Debug.Log( indicator.transform.position );
-        }
-
         protected override void OnTriggerEnter( Collider col ) {
             base.OnTriggerStay( col );
 
