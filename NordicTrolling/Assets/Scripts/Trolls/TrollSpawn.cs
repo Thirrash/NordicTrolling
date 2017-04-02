@@ -27,34 +27,39 @@ namespace Trolls
                 Ray ray = cam.ScreenPointToRay( Input.mousePosition );
                 RaycastHit hit;
 
-                Physics.Raycast( ray, out hit, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain )  );
+                Physics.Raycast( ray, out hit, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain ) );
                 if( hit.collider.gameObject.layer != ConstantsLayer.terrain )
                     continue;
 
                 if( count.GetTrollCount( choice.currTrollNr ) <= 0 )
                     continue;
 
-                GameObject trollSpawned = Instantiate( choice.currTroll, hit.point + new Vector3( 0.0f, 1.0f, 0.0f ), Quaternion.identity ) as GameObject;
-                count.ChangeTrollCount( choice.currTrollNr, count.GetTrollCount( choice.currTrollNr ) - 1 );
 
                 yield return new WaitForSecondsRealtime( 0.1f );
-                if( !trollSpawned.GetComponent<TrollBase>( ).IsStanding ) {
+                if( !choice.currTroll.GetComponent<TrollBase>( ).IsStanding ) {
                     yield return new WaitForSecondsRealtime( 0.1f );
-                    TrollWalking troll = trollSpawned.GetComponent<TrollWalking>( );
                     while( true ) {
-                        yield return new WaitUntil( ( ) => Input.GetMouseButtonDown( 0 ) );
+                        yield return new WaitUntil( ( ) => Input.GetMouseButtonUp( 0 ) );
 
+                        RaycastHit hit2;
                         ray = cam.ScreenPointToRay( Input.mousePosition );
-                        Physics.Raycast( ray, out hit, 100.0f );
-                        if( hit.collider.gameObject.layer != ConstantsLayer.terrain )
+                        Physics.Raycast( ray, out hit2, 100.0f, ConstantsLayer.BIT( ConstantsLayer.terrain ) );
+                        if( hit2.collider.gameObject.layer != ConstantsLayer.terrain )
                             continue;
 
-                        troll.EndPoint = hit.point;
+                        GameObject trollSpawned = Instantiate( choice.currTroll, hit.point + new Vector3( 0.0f, 1.0f, 0.0f ), Quaternion.identity ) as GameObject;
+                        yield return new WaitForSecondsRealtime( 0.05f );
+
+                        TrollWalking troll = trollSpawned.GetComponent<TrollWalking>( );
+                        troll.EndPoint = hit2.point;
                         troll.TriggerMove( );
                         break;
                     }
+                } else {
+                    GameObject trollSpawned = Instantiate( choice.currTroll, hit.point + new Vector3( 0.0f, 1.0f, 0.0f ), Quaternion.identity ) as GameObject;
                 }
 
+                count.ChangeTrollCount( choice.currTrollNr, count.GetTrollCount( choice.currTrollNr ) - 1 );
                 Debug.Log( "Spawned Troll!" );
                 yield return new WaitForSecondsRealtime( cooldownTime );
             }
