@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 using Viking;
 
@@ -63,6 +66,7 @@ namespace Traps
                 yield return new WaitWhile( ( ) => timer < timeInactive );
                 em.enabled = true;
                 part.Play( );
+                //EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.AOEAttack));
                 col.enabled = true;
 
                 yield return new WaitWhile( ( ) => timer < timeInactive + timeActive );

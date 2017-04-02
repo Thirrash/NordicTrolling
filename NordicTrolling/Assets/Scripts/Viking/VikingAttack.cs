@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Events;
+using Enums;
+using Events;
 using Managers;
 using Movement;
 using UnityEngine;
@@ -23,64 +25,101 @@ namespace Viking
         private bool isFighting;
         private GameObject detectedTroll;
 
-        private void Start( ) {
-            agent = GetComponent<NavMeshAgent>( );
-            moveTo = GetComponent<MoveTo>( );
+        private void Start()
+        {
+            agent = GetComponent<NavMeshAgent>();
+            moveTo = GetComponent<MoveTo>();
         }
 
-        void Update( ) {
-            timer = Mathf.MoveTowards( timer, 1, Time.deltaTime );
-            if( timer < 1 ) return;
-            if( isFighting ) {
-                fightTimer = Mathf.MoveTowards( fightTimer, FightDuration, Time.deltaTime );
+        void Update()
+        {
+            timer = Mathf.MoveTowards(timer, 1, Time.deltaTime);
+            if (timer < 1) return;
+            if (isFighting)
+            {
+                fightTimer = Mathf.MoveTowards(fightTimer, FightDuration, Time.deltaTime);
             }
-            DetectFight( );
-            HandleFight( );
+            DetectFight();
+            HandleFight();
         }
 
-        void DetectFight( ) {
-            if( isFighting ) return;
+        void DetectFight()
+        {
+            if (isFighting) return;
             RaycastHit hit;
-            if( Physics.Raycast( transform.position, transform.forward, out hit, RayDist, TargetMask ) ) {
-                if( fightParticles == null ) {
-                    fightParticles = EffectSpawner.SpawnFightParticles( transform.position + transform.forward + ( 3 * Vector3.up ) );
-                    SetAgentActive( false );
-                    detectedTroll = hit.collider.gameObject;
-                    FightDuration = detectedTroll.GetComponent<Trolls.TrollBase>( ).FightTime;
-                    isFighting = true;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, RayDist, TargetMask))
+            {
+                if (fightParticles == null)
+                {
+                    fightParticles =
+                        EffectSpawner.SpawnFightParticles(transform.position + transform.forward + (3 * Vector3.up));
+                    SetAgentActive(false);
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, RayDist, TargetMask))
+                    {
+                        if (fightParticles == null)
+                        {
+                            fightParticles =
+                                EffectSpawner.SpawnFightParticles(transform.position + transform.forward +
+                                                                  (3 * Vector3.up));
+                            SetAgentActive(false);
+                            EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.Fight));
+                            detectedTroll = hit.collider.gameObject;
+                            FightDuration = detectedTroll.GetComponent<Trolls.TrollBase>().FightTime;
+                            isFighting = true;
+                        }
+                    }
+
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, TrollStopDist, TargetMask))
+                    {
+                        detectedTroll = hit.collider.gameObject;
+                        if (detectedTroll.GetComponent<Trolls.TrollWalking>() != null)
+                            detectedTroll.GetComponent<Trolls.TrollWalking>().SetAgentActive(false);
+                    }
+
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, TrollRunDist, TargetMask))
+                    {
+                        detectedTroll = hit.collider.gameObject;
+                        if (detectedTroll.GetComponent<Trolls.TrollFast>() != null)
+                            agent.speed = 7.0f;
+                    }
+                    else
+                        agent.speed = 3.5f;
                 }
             }
+        }
 
-            if( Physics.Raycast( transform.position, transform.forward, out hit, TrollStopDist, TargetMask ) ) {
-                detectedTroll = hit.collider.gameObject;
-                if( detectedTroll.GetComponent<Trolls.TrollWalking>( ) != null )
-                    detectedTroll.GetComponent<Trolls.TrollWalking>( ).SetAgentActive( false );
+        void HandleFight()
+                {
+                    if (fightTimer < FightDuration) return;
+                    if (detectedTroll != null)
+                    {
+                        Destroy(detectedTroll);
+                        EventManager.Instance.QueueEvent(
+                            new PlaySimpleSoundFromListEvent(new List<string>
+                            {
+                                SoundsEnum.TrollDie1,
+                                SoundsEnum.TrollDie2,
+                                SoundsEnum.TrollDie3
+                            }));
+                        EventManager.Instance.QueueEvent(
+                            new PlaySimpleSoundFromListEvent(new List<string>
+                            {
+                                SoundsEnum.VikingLaugh1,
+                                SoundsEnum.VikingLaugh2
+                            }));
+                    }
+                    Destroy(fightParticles);
+                    SetAgentActive(true);
+                    fightTimer = 0;
+                    isFighting = false;
+
+                }
+
+                public void SetAgentActive(bool active)
+                {
+                    agent.enabled = active;
+                    moveTo.enabled = active;
+                }
             }
-
-            if( Physics.Raycast( transform.position, transform.forward, out hit, TrollRunDist, TargetMask ) ) {
-                detectedTroll = hit.collider.gameObject;
-                if( detectedTroll.GetComponent<Trolls.TrollFast>( ) != null )
-                    agent.speed = 7.0f;
-            } else
-                agent.speed = 3.5f;
         }
-
-        void HandleFight( ) {
-            if( fightTimer < FightDuration ) return;
-            if( detectedTroll != null ) {
-                Destroy( detectedTroll );
-            }
-            Destroy( fightParticles );
-            SetAgentActive( true );
-            fightTimer = 0;
-            isFighting = false;
-
-        }
-
-        public void SetAgentActive( bool active ) {
-            agent.enabled = active;
-            moveTo.enabled = active;
-        }
-    }
-}
 

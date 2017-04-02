@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Events;
 using Managers;
 using UnityEngine;
@@ -10,7 +11,15 @@ namespace Sounds
         private void Start()
         {
             EventManager.Instance.AddListener<PlaySimpleSoundEvent>(PlaySound);
+            EventManager.Instance.AddListener<PlaySimpleSoundFromListEvent>(PlaySoundFromList);
             EventManager.Instance.AddListener<PlaySimpleSoundWithPitchEvent>(PlaySoundWithPitch);
+        }
+
+        private void PlaySoundFromList(PlaySimpleSoundFromListEvent e)
+        {
+            var rand = new System.Random();
+            var sound = e.SoundsToPlay.ElementAt(rand.Next(e.SoundsToPlay.Count()));
+            AudioManager.Main.PlayNewSound(sound);
         }
 
         private void PlaySound(PlaySimpleSoundEvent e)
@@ -37,6 +46,15 @@ namespace Sounds
             try
             {
                 EventManager.Instance.RemoveListener<PlaySimpleSoundWithPitchEvent>(PlaySoundWithPitch);
+            }
+            catch (Exception)
+            {
+                Debug.Log("Tried to destroy null object");
+            }
+
+            try
+            {
+                EventManager.Instance.RemoveListener<PlaySimpleSoundFromListEvent>(PlaySoundFromList);
             }
             catch (Exception)
             {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Events;
 using Enums;
+using Events;
 using FOV;
 using Managers;
 using Movement;
@@ -68,6 +69,14 @@ namespace Viking
                         isTrollSpotted = true;
                         SwapTargetMask(false);
                         GetComponent<Animator>().SetTrigger("Run");
+                        EventManager.Instance.QueueEvent(
+                            new PlaySimpleSoundFromListEvent(new List<string>
+                            {
+                                SoundsEnum.VikingAhaahah,
+                                SoundsEnum.VikingTrollSpotted,
+                                SoundsEnum.VikingValhalla,
+                                SoundsEnum.VikingTrollSpotted2
+                            }));
                     }
                 }
                 float dupa = (Random.Range(0, VisibleObjects.Count));

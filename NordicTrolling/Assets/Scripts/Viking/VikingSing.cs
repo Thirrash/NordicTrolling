@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 
 namespace Viking
@@ -15,7 +18,6 @@ namespace Viking
                 Inst = this;
             else
                 Destroy( this );
-
             stats = GetComponent<VikingStats>( );
             attack = GetComponent<VikingAttack>( );
         }
