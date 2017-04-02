@@ -965,7 +965,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   RayDist: 2
-  TrollStopDist: 12
+  TrollStopDist: 5
   TrollRunDist: 35
 --- !u!114 &114783168500630628
 MonoBehaviour:
