@@ -24,14 +24,17 @@
         public static readonly string VikingYhhyh = "VikingYhhyh";
         public static readonly string LakeSplash = "LakeSplash";
         public static readonly string BearTrap = "BearTrap";
+        public static readonly string IceTrap = "IceTrap";
         public static readonly string AOEAttack = "AOEAttack";
-        public static readonly string TreeFall = "tree-fall";
+        public static readonly string TreeFall = "TreeFall";
+        public static readonly string DragonWhoosh = "DragonWhoosh";
+        public static readonly string Fight = "Fight";
 
     }
 
     public class MusicEnum
     {
-        public static readonly string MainTheme = "MainTheme";
-        public static readonly string LevelTheme = "LevelTheme";
+        //public static readonly string MainTheme = "MainTheme";
+        //public static readonly string LevelTheme = "LevelTheme";
     }
 }

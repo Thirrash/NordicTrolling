@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 
 namespace Traps
@@ -21,33 +24,39 @@ namespace Traps
 
         bool isTriggered = false;
 
-        protected override void Start( ) {
-            base.Start( );
-            StartCoroutine( Spawn( ( x ) => { isTriggered = x; } ) );
+        protected override void Start()
+        {
+            base.Start();
+            StartCoroutine(Spawn((x) => { isTriggered = x; }));
         }
 
-        void Update( ) {
-            Debug.Log( indicator.transform.position );
+        void Update()
+        {
+            //Debug.Log(indicator.transform.position);
         }
 
-        protected override void OnTriggerEnter( Collider col ) {
-            base.OnTriggerStay( col );
+        protected override void OnTriggerEnter(Collider col)
+        {
+            base.OnTriggerStay(col);
 
-            if( col.gameObject.layer == ConstantsLayer.viking )
+            if (col.gameObject.layer == ConstantsLayer.viking)
                 isTriggered = true;
         }
 
-        IEnumerator Spawn( Action<bool> isTriggeredPointer ) {
-            while( true ) {
-                yield return new WaitUntil( ( ) => isTriggered );
-                isTriggeredPointer( false );
+        IEnumerator Spawn(Action<bool> isTriggeredPointer)
+        {
+            while (true)
+            {
+                yield return new WaitUntil(() => isTriggered);
+                isTriggeredPointer(false);
 
-                GameObject arrow = Instantiate( spawned, indicator.transform.position, Quaternion.identity );
-                Debug.Log( indicator.transform.rotation.eulerAngles );
-                arrow.GetComponent<Rigidbody>( ).AddForce( arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange );
-                arrow.GetComponent<Arrow>( ).damage = damageValue;
+                GameObject arrow = Instantiate(spawned, indicator.transform.position, Quaternion.identity);
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.DragonWhoosh));
+                Debug.Log(indicator.transform.rotation.eulerAngles);
+                arrow.GetComponent<Rigidbody>().AddForce(arrowSpeed * indicator.transform.forward, ForceMode.VelocityChange);
+                arrow.GetComponent<Arrow>().damage = damageValue;
 
-                yield return new WaitForSecondsRealtime( cooldown );
+                yield return new WaitForSecondsRealtime(cooldown);
             }
         }
     }

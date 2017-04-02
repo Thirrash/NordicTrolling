@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Events;
+using Enums;
+using Events;
 using Managers;
 using Movement;
 using UnityEngine;
@@ -49,6 +51,7 @@ namespace Viking
                 {
                     fightParticles = EffectSpawner.SpawnFightParticles(transform.position + transform.forward + (3 *Vector3.up));
                     SetAgentActive(false);
+                    EventManager.Instance.QueueEvent(new PlaySimpleSoundEvent(SoundsEnum.Fight));
                     detectedTroll = hit.collider.gameObject;
 
                     if( detectedTroll.GetComponent<Trolls.TrollWalking>( ) != null )
@@ -66,6 +69,8 @@ namespace Viking
             if (detectedTroll != null)
             {
                 Destroy(detectedTroll);
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundFromListEvent(new List<string> { SoundsEnum.TrollDie1, SoundsEnum.TrollDie2, SoundsEnum.TrollDie3 }));
+                EventManager.Instance.QueueEvent(new PlaySimpleSoundFromListEvent(new List<string> { SoundsEnum.VikingLaugh1, SoundsEnum.VikingLaugh2}));
             }
             Destroy(fightParticles);
             SetAgentActive(true);

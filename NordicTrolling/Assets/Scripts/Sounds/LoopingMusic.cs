@@ -16,16 +16,16 @@ namespace Sounds
             EventManager.Instance.AddListener<PlayMusicLoopEvent>(PlayMusic);
             switch (SceneManager.GetActiveScene().name)
             {
-                case ScenesEnum.Menu:
-                {
-                    PlayMusic(MusicEnum.MainTheme);
-                    break;
-                }
-                default:
-                {
-                    PlayMusic(MusicEnum.LevelTheme);
-                    break;
-                }
+                //case ScenesEnum.Menu:
+                //{
+                //    //PlayMusic(MusicEnum.MainTheme);
+                //    //break;
+                //}
+                //default:
+                //{
+                //    //PlayMusic(MusicEnum.LevelTheme);
+                //    //break;
+                //}
             }
         }
 

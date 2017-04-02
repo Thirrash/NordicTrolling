@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
+using Events;
+using Managers;
 using UnityEngine;
 
 namespace Trolls
@@ -35,6 +38,14 @@ namespace Trolls
                     continue;
 
                 GameObject trollSpawned = Instantiate( choice.currTroll, hit.point + new Vector3( 0.0f, 1.0f, 0.0f ), Quaternion.identity ) as GameObject;
+                EventManager.Instance.QueueEvent(
+                    new PlaySimpleSoundFromListEvent(new List<string>
+                    {
+                        SoundsEnum.TrollBigSpawn,
+                        SoundsEnum.TrollPatrolSpawn,
+                        SoundsEnum.TrollPatrolGo,
+                        SoundsEnum.TrollStandardSpawn
+                    }));
                 count.ChangeTrollCount( choice.currTrollNr, count.GetTrollCount( choice.currTrollNr ) - 1 );
 
                 yield return new WaitForSecondsRealtime( 0.1f );
