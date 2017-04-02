@@ -55,7 +55,7 @@ namespace Trolls
                             continue;
 
                         GameObject trollSpawned =
-                            Instantiate(choice.currTroll, hit.point + new Vector3(0.0f, 1.0f, 0.0f), Quaternion.identity)
+                            Instantiate(choice.currTroll, hit.point + new Vector3(0.0f, 1.0f, 0.0f), Quaternion.Euler(0,180,0))
                                 as GameObject;
                         EventManager.Instance.QueueEvent(
                             new PlaySimpleSoundFromListEvent(new List<string>
@@ -76,7 +76,7 @@ namespace Trolls
                 else
                 {
                     GameObject trollSpawned =
-                        Instantiate(choice.currTroll, hit.point + new Vector3(0.0f, 1.0f, 0.0f), Quaternion.identity) as
+                        Instantiate(choice.currTroll, hit.point + new Vector3(0.0f, 1.0f, 0.0f), Quaternion.Euler(0, 180, 0)) as
                             GameObject;
                     EventManager.Instance.QueueEvent(
                             new PlaySimpleSoundFromListEvent(new List<string>
